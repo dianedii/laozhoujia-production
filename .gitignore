@@ -1,0 +1,10 @@
+# 大文件不入库：视频片段与生成图体积大，按需手动备份
+episodes/*/clips/
+episodes/*/frames/
+*.mp4
+*.mov
+*.webm
+
+# 系统文件
+Thumbs.db
+Desktop.ini
