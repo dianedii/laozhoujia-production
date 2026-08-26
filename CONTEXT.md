@@ -1,11 +1,11 @@
 # SESSION CONTEXT · 会话交接文档
 
 > **用途**：重启会话后，先读这个文件，30 秒恢复全部上下文。每次会话结束前更新。
-> 最后更新：2026-08-24
+> 最后更新：2026-08-26
 
 ## 项目一句话
 
-《老周家》抖音 AI 家庭情景短剧：超写实真人风四口之家（爸磊38/妈晓月36/哥浩宇10/妹思琪7），目标受众为爱看家庭琐事的女性休闲用户。人物资产库已就绪（`../character-assets/`），当前处于 **EP01 视频生成阶段**。
+《老周家》抖音 AI 家庭情景短剧：超写实真人风四口之家（爸磊38/妈晓月36/哥浩宇10/妹思琪7），目标受众为爱看家庭琐事的女性休闲用户。人物资产库已就绪（`../character-assets/`）。当前：**EP01 待剪映后期；new_ads 库第一集《打完这局》已沈家化并定稿（v2，`../new_ads/scripts/EP01-打完这局-剧本.md`），全链路迁至 `../new_ads/`（scripts/storyboards/videos + docs 流水线自包含）。**
 
 ## 已定稿决策（勿再讨论，直接执行）
 
@@ -14,7 +14,9 @@
 3. **EP01 v2 剧情（泡沫海版）**：立flag→琪琪预言→挤半瓶洗洁精埋雷→宣布完工（泡沫偷涨）→下摇打脸→金句应验→妈递拖把收束。50秒/7镜/全程厨房单场景。片尾字幕「承诺越满，泡泡越多。」
 4. 浩浩本集仅画外音「切——」（SH04 第4秒）；琪琪两次拆台是"预言→应验"结构，保留
 5. 一致性铁律：每镜必挂 `00-master-front.png` + STYLE_BIBLE 锁定句原样拼接；同框正脸≤2；一镜一事；重roll≤2次
-6. production 目录 git 管理（本地仓库，无远端）
+6. production 目录 git 管理；远端 `dianedii/laozhoujia-production`（master）
+7. **集数口径（2026-08-26）**：老周家 production 线 EP01 洗碗、EP03 作业打卡；《打完这局》已迁至 new_ads 库并沈家化为该库 **EP01**，作业打卡在 new_ads 内顺延为 EP02；character-assets/scripts 的选题编号仅为选题 ID
+8. **半自动流水线定型（2026-08-26）**：九段五关卡 SOP 见 `docs/PIPELINE.md`，四件套模板在 `docs/templates/`；创意文档（剧本/分镜）在 character-assets/scripts，生产文档在本仓 episodes；剪映精修环节永久人工
 
 ## 当前进度
 
@@ -25,21 +27,25 @@
 | API key 实测 | ✅ 免费层 limit:0，API线停用 |
 | **3张场景图** | ⚠️ 存于 Flow 项目（SCENE-KITCHEN 6ac5324b 已用于全部7镜），本地 assets/scenes/ 仍空待下载 |
 | SH01~07 视频生成 | ✅ 全部完成，clips/SH01~07_v1.mp4（本次会话共扣80点，1050→970） |
-| 剪映后期 | ⬜ 未开始 |
+| 流水线 SOP + 四件套模板 + new_ads EP01《打完这局》沈家剧本定稿 + 集数口径统一 | ✅ 2026-08-26 会话完成 |
+| EP01 剪映后期 | ⬜ 未开始 |
+| new_ads EP01 分镜（待人审 G1 后启动） | ⬜ 未开始 |
 
 ## 用户下一步（重启后第一件事）
 
-1. 把 Flow 项目「老周一家人-第一集-洗碗」里的 3 张场景图下载 → 存入 `production/assets/scenes/` → 改名 `SCENE-kitchen.png` / `SCENE-livingroom.png` / `SCENE-dining.png`（EP01 只用 kitchen）
-2. **逐镜验收 clips/SH01~07_v1.mp4**（AI 无法看画面，只验证了技术参数：8s/6s、9:16、参考图、模型；泡沫量/手指/表情需人眼确认，不满意的重 roll ≤2 次）
-3. 全部确认后进入剪映后期：按各 SH 文件末尾配音卡配音（音色定版后填 `docs/voice.md` 表格）→ 大字幕 → 片尾字幕 →「AI 生成」标注
-4. 可选：SH01-AB 对照版（+25点）未做
+1. **人审 new_ads EP01《打完这局》剧本**（`../new_ads/scripts/EP01-打完这局-剧本.md`，沈家 v2）→ 通过后在 new_ads 库按 PIPELINE S2 拆分镜（新库 docs/ 已自包含流程文档）
+2. 把 Flow 项目「老周一家人-第一集-洗碗」里的 3 张场景图下载 → 存入 `production/assets/scenes/` → 改名 `SCENE-kitchen.png` / `SCENE-livingroom.png` / `SCENE-dining.png`（EP01 只用 kitchen）
+3. **逐镜验收 clips/SH01~07_v1.mp4**（AI 无法看画面，只验证了技术参数：8s/6s、9:16、参考图、模型；泡沫量/手指/表情需人眼确认，不满意的重 roll ≤2 次）
+4. 全部确认后进入剪映后期：按各 SH 文件末尾配音卡配音（音色定版后填 `docs/voice.md` 表格）→ 大字幕 → 片尾字幕 →「AI 生成」标注
+5. 可选：SH01-AB 对照版（+25点）未做
 
 ## 下一个会话的我应该做什么
 
+- 用户报告"new_ads EP01 剧本通过/要改" → 通过则走 PIPELINE S2 用模板②拆分镜；要改则先改剧本
 - 用户报告"场景图存好了" → 用 `Get-ChildItem production\assets\scenes` 验证文件名
 - 用户报告某镜翻车 → 读对应 SHxx.md 和 notes.md，改提示词（改前先看 STYLE_BIBLE 骨架）
 - 用户报告全部片段通过验收 → 指导剪映后期（workflow.md Step5 + voice.md）
-- EP01 收尾后 → 主动提醒：点数月底清零，剩余 ~900 可做 EP02《遥控器最高权力》（客厅场景，浩浩主场），需要时直接产出 EP02 提示词包
+- new_ads EP01 进 S5 时 → 先用 NB2 出成对手柄道具图（深灰/奶白）+ 厨房场景图，存资产库 `../new_ads/scene/01-shen-home/`
 - 写回协议：EP01 完成后把"首集制作复盘"写入知识库 `00-Inbox/`
 
 ## 关键路径速查

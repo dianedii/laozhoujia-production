@@ -26,6 +26,8 @@
 production/
 ├── README.md            ← 本文件：总览 + 新人上手
 ├── docs/
+│   ├── PIPELINE.md       ← 生产流水线 SOP：九段五关卡，每集照此走
+│   ├── templates/        ← 四件套模板（剧本/分镜/SHxx提示词包/发布包）
 │   ├── STYLE_BIBLE.md   ← 风格宪法！全局提示词模块都在这，改风格只改这里
 │   ├── workflow.md      ← 标准 SOP：从选脚本到发布的六步流程
 │   ├── flow-manual.md   ← Google Flow 网页操作手册（含模型/点数对照表）
@@ -73,11 +75,15 @@ production/
 
 | 项目 | 状态 |
 |------|------|
+| 生产流水线 SOP | ✅ `docs/PIPELINE.md` 九段五关卡 + 四件套模板（2026-08-26 定型） |
 | 人物资产库 v1.1.0（爸/妈/哥/妹） | ✅ 就绪（character-assets/） |
 | 外婆、全家福资产 | ❌ 未建（不急，低频角色） |
 | 场景锁定图 ×3 | ⚠️ 已在 Flow 生成，待存入 assets/scenes/ |
-| EP01《洗碗包在我身上》v2 泡沫海版（7镜） | 🔄 提示词包就绪，待 Flow 生成视频 |
+| EP01《洗碗包在我身上》v2 泡沫海版（7镜） | ✅ clips 全部生成（80点），待剪映后期 |
+| EP01《打完这局》沈家夫妻手柄赌局（95s） | 🔄 new_ads 库第一集，剧本 v2 已定稿（`../new_ads/scripts/EP01-打完这局-剧本.md`）→ 过 G1 后拆分镜 |
 | API 自动化生图线 | ⛔ 未绑卡未启用（已实测，见 api-pipeline.md） |
+
+> **集数口径（2026-08-26 起）**：老周家 production 线 EP01 洗碗、EP03 作业打卡；《打完这局》已迁至 `new_ads` 库并沈家化为该库 **EP01**，作业打卡在 new_ads 内顺延为 EP02；character-assets/scripts 内的选题编号仅为选题 ID。
 
 ## 硬规则（违反必返工）
 
